@@ -16,7 +16,7 @@ public interface TodoRepository extends JpaRepository<Todo, Long> {
      * @EntityGraph란?: JPA에서 JPQL fetch join을 대체할 수 있는 선언적 방식
      * attributePaths = {"user"}: user를 FETCH JOIN하도록 지정
     * */
-    @EntityGraph(attributePaths = {"user"})
+    @EntityGraph(attributePaths = "user")
     Page<Todo> findAllByOrderByModifiedAtDesc(Pageable pageable);
 
     @Query("SELECT t FROM Todo t " +
